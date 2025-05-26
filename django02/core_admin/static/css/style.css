@@ -1,146 +1,298 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #BED1E3; /* Soft Sky como fondo principal */
     color: #333;
+    line-height: 1.6;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    background-color: #DABBE0; /* Lavender para el header */
+    color: #333; /* Texto oscuro para mejor contraste */
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-bottom: 15px;
 }
 
-nav ul {
+/* Ajustado para nav dentro de header */
+header nav {
+    background-color: #93AECA; /* Denim para el nav */
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: #444;
 }
 
-nav ul li {
+header nav ul li {
     margin: 0 15px;
 }
 
-nav ul li a {
-    color: #fff;
+header nav ul li a {
+    color: #333; /* Texto oscuro para mejor contraste */
     text-decoration: none;
     padding: 10px 15px;
     display: block;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 4px;
 }
 
-nav ul li a:hover {
-    background-color: #555;
+header nav ul li a:hover {
+    background-color: #EEBFD1; /* Flamingo para el hover */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 main {
     padding: 20px;
     background-color: #fff;
-    margin: 20px;
+    margin: 20px auto 60px; /* Margen inferior para el footer fijo */
+    max-width: 1200px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding-top: 40px; /* Espacio adicional para el nav */
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
+
+main h2 {
+    color: #ECAAC2; /* Mauve para los títulos */
+    border-bottom: 2px solid #EEBFD1; /* Flamingo para subrayado */
+    padding-bottom: 10px;
+}
+
+/* ESTILOS PARA CENTRAR FORMULARIOS */
+/* Contenedor principal para centrar formularios */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 20px;
+    background-color: transparent; /* Sin fondo para que se vea el fondo del body */
+    margin: 0; /* Eliminar márgenes */
+    box-shadow: none; /* Sin sombra */
+    max-width: none; /* Sin límite de ancho */
+}
+
+/* Estilos para el formulario de contacto */
+.contact-form, .login-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    bottom: 0;
+    max-width: 500px;
+    text-align: left;
 }
 
-/* Estilos específicos para el formulario de contacto */
+.contact-form h2, .login-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ECAAC2;
+    font-size: 2rem;
+}
+
+/* Estilos para los campos del formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #93AECA;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ECAAC2;
+    box-shadow: 0 0 0 3px rgba(236, 170, 194, 0.1);
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Estilos para botones */
+.btn {
+    background-color: #ECAAC2;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #EEBFD1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos específicos para el formulario de login */
+.login-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-links a {
+    color: #ECAAC2;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-links a:hover {
+    color: #EEBFD1;
+}
+
+/* Para mantener compatibilidad con formularios existentes */
 form {
-    max-width: 600px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 form label {
-    display: block;
-    margin-bottom: 5px;
     font-weight: bold;
+    color: #333;
 }
 
 form input[type="text"],
 form input[type="email"],
+form input[type="password"],
 form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px;
+    border: 2px solid #93AECA;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
 }
 
-form button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #ECAAC2;
+    box-shadow: 0 0 0 3px rgba(236, 170, 194, 0.1);
+}
+
+form button,
+form input[type="submit"] {
+    background-color: #ECAAC2;
+    color: white;
+    padding: 12px 30px;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #555;
-}
-
-/* Estilos específicos para el formulario de login */
-.login-form {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.login-form .form-group {
-    margin-bottom: 15px;
-}
-
-.login-form label {
-    display: block;
-    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 16px;
     font-weight: bold;
-}
-
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.login-form button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
 }
 
-.login-form button:hover {
-    background-color: #555;
+form button:hover,
+form input[type="submit"]:hover {
+    background-color: #EEBFD1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.login-form p {
+footer {
+    background-color: #DABBE0; /* Lavender para el footer */
+    color: #333; /* Texto oscuro para mejor contraste */
     text-align: center;
+     height: auto; /* Altura automática según contenido */
+    padding: 5px 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
 }
 
-.login-form a {
+/* Animaciones sutiles */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Estilos para contenedores con fondos de colores */
+.bg-lavender {
+    background-color: #DABBE0;
+    padding: 20px;
+    border-radius: 8px;
     color: #333;
-    text-decoration: none;
 }
 
-.login-form a:hover {
-    text-decoration: underline;
+.bg-flamingo {
+    background-color: #EEBFD1;
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
+}
+
+.bg-soft-sky {
+    background-color: #BED1E3;
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
+}
+
+.bg-mauve {
+    background-color: #ECAAC2;
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
+}
+
+.bg-denim {
+    background-color: #93AECA;
+    padding: 20px;
+    border-radius: 8px;
+    color: #333;
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <!-- Asegúrate de que la ruta del CSS sea correcta -->
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
@@ -20,23 +20,30 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <h1>Login</h1>
-        <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+    <main class="form-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="login-links">
+                <p>Don't have an account? <a href="#">Sign up</a></p>
+                <p>Don't have an account? <a href="#">Sistema de usuarios</a></p>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="#">Sign up</a></p>
-        <p>Don't have an account? <a href="#">Sistema de usuarios</a></p>
+        </div>
     </main>
+    <footer>
+        <p>&copy; 2025 Your Website. All rights reserved.</p>
+    </footer>
     <!-- Asegúrate de que la ruta del JS sea correcta -->
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
