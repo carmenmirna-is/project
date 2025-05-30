@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Website{% endblock %}</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-sky': '#BED1E3',
+                        'lavender': '#DABBE0',
+                        'flamingo': '#EEBFD1',
+                        'mauve': '#ECAAC2',
+                        'denim': '#93AECA'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="font-sans m-0 p-0 bg-soft-sky text-gray-800 leading-relaxed">
+    <header class="bg-lavender text-gray-800 py-5 text-center shadow-md">
+        <h1 class="m-0 text-4xl font-bold pb-4">{% block header_title %}Welcome to Our Website{% endblock %}</h1>
+        <nav class="bg-denim py-2.5 sticky top-0 z-40">
+            <ul class="list-none p-0 m-0 flex justify-center">
+                <li class="mx-4">
+                    <a href="{% url 'home' %}" class="text-gray-800 no-underline py-2.5 px-4 block font-bold transition-all duration-300 ease-in-out rounded hover:bg-flamingo hover:-translate-y-1 hover:shadow-lg">Home</a>
+                </li>
+                <li class="mx-4">
+                    <a href="{% url 'about' %}" class="text-gray-800 no-underline py-2.5 px-4 block font-bold transition-all duration-300 ease-in-out rounded hover:bg-flamingo hover:-translate-y-1 hover:shadow-lg">About</a>
+                </li>
+                <li class="mx-4">
+                    <a href="{% url 'contact' %}" class="text-gray-800 no-underline py-2.5 px-4 block font-bold transition-all duration-300 ease-in-out rounded hover:bg-flamingo hover:-translate-y-1 hover:shadow-lg">Contact</a>
+                </li>
+                <li class="mx-4">
+                    <a href="{% url 'login' %}" class="text-gray-800 no-underline py-2.5 px-4 block font-bold transition-all duration-300 ease-in-out rounded hover:bg-flamingo hover:-translate-y-1 hover:shadow-lg">Login</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="{% block main_classes %}p-5 bg-white my-5 mx-auto mb-15 max-w-6xl rounded-lg shadow-lg pt-10{% endblock %}">
+        {% block content %}
+        <!-- Contenido específico de cada página -->
+        {% endblock %}
+    </main>
+    
+    <footer class="bg-lavender text-gray-800 text-center h-auto py-1.5 w-full shadow-[0_-4px_6px_rgba(0,0,0,0.1)] fixed bottom-0">
+        <p>&copy; 2025 Your Website. All rights reserved.</p>
+    </footer>
+    
+    <script src="{% static 'js/scripts.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

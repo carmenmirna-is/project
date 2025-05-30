@@ -1,50 +1,32 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Asegúrate de que la ruta del CSS sea correcta -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Login</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="form-container">
-        <div class="login-form">
-            <h2>Login</h2>
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn">Login</button>
-            </form>
-            <div class="login-links">
-                <p>Don't have an account? <a href="#">Sign up</a></p>
-                <p>Don't have an account? <a href="#">Sistema de usuarios</a></p>
-            </div>
+{% extends "base.html" %}
+
+{% block title %}Login - Your Website{% endblock %}
+
+{% block header_title %}Login{% endblock %}
+
+{% block main_classes %}flex justify-center items-center min-h-[60vh] p-5 bg-transparent m-0 shadow-none max-w-none{% endblock %}
+
+{% block content %}
+<div class="bg-white p-10 rounded-xl shadow-2xl w-full max-w-lg text-left">
+    <h2 class="text-center mb-8 text-mauve text-3xl">Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-5">
+            <label for="username" class="block mb-2 font-bold text-gray-800">Username:</label>
+            <input type="text" id="username" name="username" required 
+                   class="w-full p-3 border-2 border-denim rounded-md text-base transition-colors duration-300 ease-in-out box-border focus:outline-none focus:border-mauve focus:ring-4 focus:ring-mauve focus:ring-opacity-10">
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2025 Your Website. All rights reserved.</p>
-    </footer>
-    <!-- Asegúrate de que la ruta del JS sea correcta -->
-    <script src="{% static 'js/scripts.js' %}"></script>
-</body>
-</html>
+        <div class="mb-5">
+            <label for="password" class="block mb-2 font-bold text-gray-800">Password:</label>
+            <input type="password" id="password" name="password" required 
+                   class="w-full p-3 border-2 border-denim rounded-md text-base transition-colors duration-300 ease-in-out box-border focus:outline-none focus:border-mauve focus:ring-4 focus:ring-mauve focus:ring-opacity-10">
+        </div>
+        <button type="submit" 
+                class="bg-mauve text-white py-3 px-8 border-none rounded-md text-base font-bold cursor-pointer transition-all duration-300 ease-in-out w-full mt-2.5 hover:bg-flamingo hover:-translate-y-1 hover:shadow-xl">Login</button>
+    </form>
+    <div class="text-center mt-5">
+        <p class="mb-2">Don't have an account? <a href="#" class="text-mauve no-underline font-bold transition-colors duration-300 ease-in-out hover:text-flamingo">Sign up</a></p>
+        <p>Need help? <a href="#" class="text-mauve no-underline font-bold transition-colors duration-300 ease-in-out hover:text-flamingo">Sistema de usuarios</a></p>
+    </div>
+</div>
+{% endblock %}
